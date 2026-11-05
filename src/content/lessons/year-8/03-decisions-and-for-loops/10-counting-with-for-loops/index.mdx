@@ -1,0 +1,77 @@
+---
+year: 8
+unit: Decisions and for loops
+unitSlug: decisions-and-for-loops
+lesson: 10
+title: Counting with for loops
+summary: Make the computer repeat a job a set number of times, without copying and pasting.
+minutes: 15
+keywords: [for loop, range, iteration, count-controlled, indentation]
+deck: https://slides.com/gig409/python-recap-year-7-into-year-8
+codebashTopic: Decisions and loops
+codebashTasks: ["Count to n", "Times table"]
+---
+
+## The big idea
+
+A **for loop** is like a coach saying "run 3 laps". The coach counts the laps for you, and the loop variable holds the lap number each time round.
+
+`range(a, b)` counts from `a` up to, **but not including**, `b`. A third number is the **hop**: how far to jump each time. A negative hop counts down.
+
+| Code | Gives |
+|---|---|
+| `range(2, 6)` | 2, 3, 4, 5 |
+| `range(0, 10, 2)` | 0, 2, 4, 6, 8 |
+| `range(10, 0, -2)` | 10, 8, 6, 4, 2 |
+| `range(5, 5)` | nothing at all |
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="rounds" predict="How many lines will it print? What is the last one?" />
+
+<TraceTable
+  code={`for i in range(1, 4):
+    print("Round", i)`}
+  columns={["Loop", "i", "Output"]}
+  rows={[
+    { line: 2, cells: ["1st", "1", "Round 1"] },
+    { line: 2, cells: ["2nd", "2", "Round 2"] },
+    { line: 2, cells: ["3rd", "3", "Round 3"] },
+    { line: 1, cells: ["—", "4?", "stop: 4 is the stop line"] }
+  ]}
+/>
+
+<LessonVideo clip="predictRun" />
+
+## Count to n
+
+<PyChecker task="count-to-n" brief="Read a whole number n. Print every number from 1 up to and including n, one per line." />
+
+## Fix the bug
+
+This should count down from 20 to 0 in fives, then print Liftoff! It only prints Liftoff!
+
+<PyChecker task="countdown-fives" />
+
+<LessonVideo clip="fixBug" />
+
+## Extra challenge
+
+<Parsons
+  prompt="Put the times table program in order. Watch the indentation."
+  lines={["n = int(input())", "for i in range(1, 6):", "    print(n, \"x\", i, \"=\", n * i)", "print(\"Done!\")"]}
+/>
+
+<PyChecker task="times-table" brief="Read a number and print its times table from 1 to 5, like <strong>3 x 1 = 3</strong>, then <strong>Done!</strong>" />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "What does `range(1, 10, 3)` give?", a: "1, 4, 7. The next hop would be 10, which is the stop line." },
+  { q: "What does `range(5, 5)` give?", a: "Nothing. It starts on the stop line, so the loop body never runs." },
+  { q: "What does `range(0, 7, 3)` give?", a: "0, 3, 6. 6 is under 7, so it counts. 9 is too far." }
+]} />
+
+<SelfRating question="Could you predict the output of range with a hop value?" />

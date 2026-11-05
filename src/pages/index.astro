@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Yoka from '../components/Yoka.astro';
+import { getLessons, lessonUrl } from '../lib/lessons';
+import { url } from '../lib/url';
+
+const lessons = await getLessons(8);
+const first = lessons[0];
+---
+
+<BaseLayout title="Year 8 Python Programming" year={8}>
+  <section class="hero home-hero">
+    <div class="hero-text">
+      <span class="eyebrow">Computer science · Beginner course</span>
+      <h1>Year 8 Python Programming</h1>
+      <p class="summary">
+        New to Python? Start with one line of code and work up to decisions, loops and lists.
+        Each lesson gives you examples to try and feedback as you go.
+      </p>
+      <div class="start-links">
+        <a class="btn btn-gold" href={lessonUrl(first)}>Start lesson 1</a>
+        <a class="btn btn-soft" href={url('/year-8/')}>View lessons and progress</a>
+      </div>
+    </div>
+    <div class="hero-yoka">
+      <Yoka mood="idle" size={190} />
+    </div>
+  </section>
+
+  <section aria-labelledby="how">
+    <h2 id="how">How to use the course</h2>
+    <ol>
+      <li>Work through the {lessons.length} lessons in order. Most take about 15 minutes.</li>
+      <li>Predict what the code will do, then choose <strong>Run</strong> to see what happens.</li>
+      <li>Choose <strong>Check my code</strong> to test your answer. A task counts towards your progress once it passes every test.</li>
+    </ol>
+  </section>
+</BaseLayout>
+
+<style>
+  .start-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  li + li {
+    margin-top: 8px;
+  }
+</style>

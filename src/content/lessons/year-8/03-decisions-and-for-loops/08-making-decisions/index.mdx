@@ -1,0 +1,81 @@
+---
+year: 8
+unit: Decisions and for loops
+unitSlug: decisions-and-for-loops
+lesson: 8
+title: "Making decisions: if, elif, else"
+summary: Ask Python a yes or no question, and choose which road to take.
+minutes: 15
+keywords: [comparison operator, condition, Boolean, selection, indentation, SyntaxError]
+deck: https://slides.com/gig409/python-recap-year-7-into-year-8
+codebashTopic: Decisions and loops
+codebashTasks: ["Weather report", "Bus fare"]
+---
+
+## The big idea
+
+A **condition** is a yes or no question. Python answers it with `True` or `False`.
+
+| Operator | Means | True when |
+|---|---|---|
+| `==` | is equal to | `5 == 5` |
+| `!=` | is not equal to | `5 != 4` |
+| `>` | greater than | `7 > 3` |
+| `<` | less than | `3 < 7` |
+| `>=` | greater than or equal to | `5 >= 5` |
+| `<=` | less than or equal to | `4 <= 5` |
+
+`if`, `elif` and `else` are a **road junction**. Python checks each sign in order and takes the **first** road whose answer is True. Every other road is skipped.
+
+<Note title="= is not ==">
+`mark = 70` **sets** the box. `mark == 70` **asks** a question.
+</Note>
+
+<LessonVideo clip="bigIdea" />
+
+## Trace it
+
+`mark` is 72. Once one branch runs, the rest are never even tested.
+
+<TraceTable
+  code={`mark = 72
+if mark >= 70:
+    print("Distinction")
+elif mark >= 50:
+    print("Merit")
+else:
+    print("Keep going")`}
+  columns={["Line", "Test", "Result", "What happened"]}
+  rows={[
+    { line: 1, cells: ["1", "—", "—", "mark set to 72"] },
+    { line: 2, cells: ["2", "72 >= 70", "True", "go into this branch"] },
+    { line: 3, cells: ["3", "—", "—", "prints Distinction"] },
+    { line: 4, cells: ["4–7", "never tested", "skipped", "jump past the whole chain"] }
+  ]}
+/>
+
+## Predict, then run
+
+<PyChecker task="grades" predict="What will it print for 55? For 70? For 39?" />
+
+<LessonVideo clip="predictRun" />
+
+## Fix the bug
+
+<PyChecker task="ticket-price" />
+
+<LessonVideo clip="fixBug" />
+
+## Extra challenge
+
+<PyChecker task="password-check" brief="Read a password. If it is <strong>gold</strong>, print <strong>Access granted</strong>. Otherwise print <strong>Access denied</strong>." />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "What is the difference between `=` and `==`?", a: "`=` puts a value in a box. `==` asks whether two things are equal." },
+  { q: "Is `\"7\" == 7` True or False?", a: "False. Text is never equal to a number." },
+  { q: "Why must `mark >= 70` come before `mark >= 50`?", a: "72 is also >= 50. If that test came first, 72 would get Merit and the Distinction test would never run." }
+]} />
+
+<SelfRating question="Could you choose between if, elif and else correctly?" />

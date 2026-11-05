@@ -1,0 +1,94 @@
+---
+year: 8
+codebashCourseYear: 7
+unit: Python basics
+unitSlug: python-basics
+lesson: 2
+title: Variables
+summary: Teach the computer to remember things, using labelled boxes.
+minutes: 15
+keywords: [variable, identifier, value, assignment, string, integer, NameError]
+deck: https://slides.com/gig409/year-7-lesson-2-variables-in-python
+codebashTopic: Input, Output and Variables
+codebashTasks: ["All about me", "Profile card"]
+yokaSays: "Hi, I'm Yoka! Let's help the computer remember."
+---
+
+## The big idea
+
+A **variable** is like a labelled box in the computer's memory.
+
+- The **label** is the variable's name.
+- The box holds **one value** at a time: text or a number.
+- Put a new value in and the old one is thrown away.
+
+<MemoryBoxes boxes={[
+  { name: "name", value: "\"Mr Gordon\"" },
+  { name: "age", value: "12" },
+  { name: "colour", value: "\"blue\"" }
+]} />
+
+```python
+name = "Mr Gordon"    # a string
+age = 12              # an integer
+colour = "blue"       # a string
+```
+
+The name goes on the **left** of `=`, and the value on the **right**. Read `=` as "is set to".
+
+<Note title="Naming rules">
+Use letters, numbers and `_`. No spaces (`my_age`, not `my age`). Don't start with a number. Capitals matter: `Age` and `age` are different boxes.
+</Note>
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="three-boxes" predict="What will the last line print?" />
+
+<LessonVideo clip="predictRun" />
+
+## Box or word?
+
+Speech marks mean "say exactly this". No speech marks means "look inside the box".
+
+<TraceTable
+  code={`age = 12
+print("age")
+print(age)`}
+  columns={["Line", "age", "Output"]}
+  rows={[
+    { line: 1, cells: ["1", "12", "—"] },
+    { line: 2, cells: ["2", "12", "age"] },
+    { line: 3, cells: ["3", "12", "12"] }
+  ]}
+/>
+
+<Parsons
+  prompt="Put the lines in order so the program prints blue, then green."
+  lines={["colour = \"blue\"", "print(colour)", "colour = \"green\"", "print(colour)"]}
+/>
+
+## Fix the bug
+
+One of these crashes and one prints the wrong thing. Run each one, then fix it.
+
+<PyChecker task="fix-capital" />
+
+<PyChecker task="fix-quotes" />
+
+<LessonVideo clip="fixBug" />
+
+## Extra challenge
+
+<PyChecker task="all-about-ava" brief="Use the two variables to print: <strong>Hi, I'm Ava and I like red</strong>. Use commas in print() so Python adds the spaces." />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "What is a variable? Use the box idea.", a: "A labelled box in memory. The label is its name, and it holds one value at a time." },
+  { q: "What is the difference between `print(\"age\")` and `print(age)`?", a: "`print(\"age\")` prints the word age. `print(age)` prints what is inside the box, like 12." },
+  { q: "Is `my age` an allowed variable name?", a: "No, it has a space. Use `my_age` instead." }
+]} />
+
+<SelfRating question="Could you explain what a variable is, using the box idea?" />

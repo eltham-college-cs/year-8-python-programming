@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLessons, lessonUrl, tasksFor } from '../../lib/lessons';
+import { url } from '../../lib/url';
+import CourseProgress from '../../components/CourseProgress.astro';
+import CodeBashPractice from '../../components/CodeBashPractice.astro';
+
+export async function getStaticPaths() {
+  const years = await getCollection('years');
+  return years.map((y) => ({ params: { year: `year-${y.data.year}` }, props: { info: y.data } }));
+}
+
+const { info } = Astro.props;
+const lessons = await getLessons(info.year);
+---
+
+<BaseLayout title={info.title} description={info.tagline} year={info.year}>
+  <section class="hero">
+    <div class="hero-text">
+      <span class="eyebrow">Year 8 · Course overview</span>
+      <h1>{info.title}</h1>
+      <p class="summary">{info.tagline}</p>
+      <p class="muted">
+        Work through the lessons in order. Each one takes about 15 minutes.
+      </p>
+    </div>
+  </section>
+
+  <CourseProgress />
+
+  {
+    info.units.map((u, ui) => {
+      const list = lessons.filter((l) => l.data.unitSlug === u.slug);
+      if (!list.length) return null;
+      return (
+        <section class="unit" aria-labelledby={`unit-${u.slug}`}>
+          <div class="unit-head">
+            <h2 id={`unit-${u.slug}`}>
+              <a href={url(`/year-${info.year}/${u.slug}/`)} style="color:inherit;text-decoration:none">
+                {ui + 1}. {u.title}
+              </a>
+            </h2>
+            <span class="muted">{list.length} lessons</span>
+          </div>
+          <p class="muted">{u.summary}</p>
+          <ul class="lesson-list">
+            {list.map((l) => (
+              <li>
+                <a class="lesson-link" href={lessonUrl(l)} data-progress-lesson={JSON.stringify({
+                  id: l.id,
+                  number: l.data.lesson,
+                  unit: u.title,
+                  title: l.data.title,
+                  taskIds: tasksFor(l).map((task) => task.id),
+                })}>
+                  <span class="num" aria-hidden="true">
+                    {l.data.lesson}
+                  </span>
+                  <span class="title-wrap">
+                    <span class="title">
+                      <span class="visually-hidden">Lesson {l.data.lesson}: </span>
+                      {l.data.title}
+                    </span>
+                    <span class="sum">{l.data.summary}</span>
+                    <span class="sum" data-confidence />
+                  </span>
+                  <span class="rating-chip" hidden />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      );
+    })
+  }
+  <CodeBashPractice year={info.year} />
+</BaseLayout>

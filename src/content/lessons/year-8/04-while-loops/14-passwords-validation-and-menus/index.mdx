@@ -1,0 +1,83 @@
+---
+year: 8
+unit: While loops
+unitSlug: while-loops
+lesson: 14
+title: Passwords, validation and menus
+summary: The while loop shapes you will use again and again. Retry, limit, validate and quit.
+minutes: 20
+keywords: [while loop, validation, sentinel value, and / or, condition]
+deck: https://slides.com/gig409/year-8-condition-controlled-while-loops
+codebashTopic: While loops
+codebashTasks: ["Password loop", "Three tries"]
+---
+
+## The big idea
+
+Almost every while loop is one of five shapes. Notice that every condition names a variable the body is going to change.
+
+| Shape | Condition looks like | Used for |
+|---|---|---|
+| Counter | `while count > 0:` | countdowns |
+| Retry | `while attempt != PASSWORD:` | logins |
+| Retry with a limit | `while attempt != PASSWORD and tries < 3:` | three lives |
+| Validation | `while age < 11 or age > 18:` | keeping bad input out |
+| Sentinel | `while choice != "q":` | menus, quitting |
+
+<Note title="Prime the loop">
+The password loop asks for input **twice**: once before the loop, so the condition has something to test, and once inside, as the update. Delete the one inside and the loop never ends.
+</Note>
+
+<Note title="Auto-marked tasks">
+Like CodeBash, these tasks use `input()` with nothing in the brackets.
+</Note>
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="password" predict="Press Run and type silver, then bronze, then gold. What will you see?" />
+
+<LessonVideo clip="predictRun" />
+
+## Three attempts, then locked out
+
+`tries < 3` allows three attempts. `tries <= 3` would allow four. Trace it to be sure.
+
+<TraceTable
+  code={`PASSWORD = "gold"
+tries = 0
+attempt = ""
+while attempt != PASSWORD and tries < 3:
+    attempt = input()
+    tries = tries + 1`}
+  columns={["tries", "attempt", "Keep going?"]}
+  rows={[
+    { line: 4, cells: ["0", "\"\"", "True and True: True"] },
+    { line: 4, cells: ["1", "\"silver\"", "True and True: True"] },
+    { line: 4, cells: ["2", "\"bronze\"", "True and True: True"] },
+    { line: 4, cells: ["3", "\"copper\"", "True and False: False"] }
+  ]}
+/>
+
+<PyChecker task="lockout" brief="Add a limit so the user gets three attempts. Change only the while line." />
+
+<LessonVideo clip="fixBug" />
+
+## Validation
+
+<PyChecker task="age-check" brief="Keep asking until the age is between 11 and 18. Each time it is wrong, print <strong>Enter an age between 11 and 18.</strong> When it is right, print <strong>Thanks!</strong>" />
+
+## Extra challenge
+
+<PyChecker task="menu" brief="Build a menu that loops until the user types <strong>q</strong>. <strong>p</strong> prints <strong>Starting game...</strong>, <strong>s</strong> prints <strong>High score: 42</strong>. After the loop, print <strong>Bye!</strong>" />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "Why does `input()` appear twice in the password loop?", a: "The first gives the condition something to test. The second, inside the loop, is the update." },
+  { q: "How many attempts does `tries < 3` allow? And `tries <= 3`?", a: "Three, and four." },
+  { q: "What is a sentinel value?", a: "A special value that means \"I'm done\", like q to quit. Choose one the real data could never be." }
+]} />
+
+<SelfRating question="Could you write a password loop with three attempts?" />

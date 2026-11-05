@@ -1,0 +1,86 @@
+{
+  "tasks": [
+    {
+      "id": "build-list",
+      "title": "Build a list",
+      "starter": "scores = []\nscores.append(7)\nscores.append(9)\nscores.append(4)\nprint(scores)\nprint(scores[0])\nprint(len(scores))",
+      "tests": [
+        {
+          "input": "",
+          "output": "[7, 9, 4]\n7\n3"
+        }
+      ]
+    },
+    {
+      "id": "team-sheet",
+      "title": "Team sheet",
+      "starter": "team = []\nname = input()\nteam.append(name)\n\nprint(team)\nprint(len(team))",
+      "tests": [
+        {
+          "input": "Sam\nAva\nLeo",
+          "output": "['Sam', 'Ava', 'Leo']\n3"
+        },
+        {
+          "input": "Ben\nChloe\nDev",
+          "output": "['Ben', 'Chloe', 'Dev']\n3"
+        }
+      ],
+      "hints": {
+        "other": "Repeat the two middle lines twice more: read a name, then append it.",
+        "lines": "Print the list on one line and len(team) on the next."
+      }
+    },
+    {
+      "id": "vanishing-list",
+      "title": "The vanishing list",
+      "starter": "shopping = [\"bread\"]\nshopping = shopping.append(\"milk\")\nprint(shopping)",
+      "tests": [
+        {
+          "input": "",
+          "output": "['bread', 'milk']"
+        }
+      ],
+      "hints": {
+        "other": "append changes the list and hands back None. Remove shopping = from the start of line 2."
+      }
+    },
+    {
+      "id": "swap-ends",
+      "title": "Swap the ends",
+      "starter": "names = []\nnames.append(input())\nnames.append(input())\nnames.append(input())\n\nprint(names)",
+      "tests": [
+        {
+          "input": "Ava\nBen\nChloe",
+          "output": "['Chloe', 'Ben', 'Ava']"
+        },
+        {
+          "input": "red\ngreen\nblue",
+          "output": "['blue', 'green', 'red']"
+        }
+      ],
+      "hints": {
+        "other": "Three lines: temp = names[0], then names[0] = names[2], then names[2] = temp.",
+        "error": "There are 3 items, so the last index is 2 (or use -1)."
+      }
+    },
+    {
+      "id": "five-scores",
+      "title": "Five scores",
+      "starter": "scores = []\n",
+      "tests": [
+        {
+          "input": "3\n5\n7\n9\n11",
+          "output": "[3, 5, 7, 9, 11]"
+        },
+        {
+          "input": "10\n0\n4\n4\n2",
+          "output": "[10, 0, 4, 4, 2]"
+        }
+      ],
+      "hints": {
+        "punctuation": "If you see quotes around the numbers, they are still text. Use int(input()).",
+        "lines": "Print the list once, after the loop, not inside it."
+      }
+    }
+  ]
+}

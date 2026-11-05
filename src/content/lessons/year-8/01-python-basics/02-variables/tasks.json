@@ -1,0 +1,61 @@
+{
+  "tasks": [
+    {
+      "id": "three-boxes",
+      "title": "Look inside the boxes",
+      "starter": "name = \"Sam\"\nage = 12\nprint(name)\nprint(age)\nprint(\"My name is\", name)",
+      "tests": [
+        {
+          "input": "",
+          "output": "Sam\n12\nMy name is Sam"
+        }
+      ],
+      "hints": {
+        "spaces": "A comma in print() adds one space for you. Don't add another inside the speech marks."
+      }
+    },
+    {
+      "id": "fix-capital",
+      "title": "Fix the score",
+      "starter": "score = 10\nprint(Score)",
+      "tests": [
+        {
+          "input": "",
+          "output": "10"
+        }
+      ],
+      "hints": {
+        "error": "Python can't find a box called Score. Look carefully at the capital letter: is the box called score or Score?"
+      }
+    },
+    {
+      "id": "fix-quotes",
+      "title": "Fix the greeting",
+      "starter": "name = \"Sam\"\nprint(\"Hello\", \"name\")",
+      "tests": [
+        {
+          "input": "",
+          "output": "Hello Sam"
+        }
+      ],
+      "hints": {
+        "other": "Speech marks around name make Python print the word name. Take them off to look inside the box."
+      }
+    },
+    {
+      "id": "all-about-ava",
+      "title": "All about Ava",
+      "starter": "name = \"Ava\"\ncolour = \"red\"\n",
+      "tests": [
+        {
+          "input": "",
+          "output": "Hi, I'm Ava and I like red"
+        }
+      ],
+      "hints": {
+        "spaces": "Let the commas add the spaces. Don't put spaces at the ends of the text inside the speech marks.",
+        "other": "Use the variables name and colour (no speech marks) inside print()."
+      }
+    }
+  ]
+}

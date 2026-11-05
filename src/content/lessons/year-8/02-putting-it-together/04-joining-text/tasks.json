@@ -1,0 +1,77 @@
+{
+  "tasks": [
+    {
+      "id": "name-badge",
+      "title": "Name badge",
+      "starter": "name = input()\nform = input()\nprint(\"Hello, my name is \" + name + \" from \" + form)",
+      "tests": [
+        {
+          "input": "Sam\n7G",
+          "output": "Hello, my name is Sam from 7G"
+        },
+        {
+          "input": "Ava\n7B",
+          "output": "Hello, my name is Ava from 7B"
+        }
+      ],
+      "hints": {
+        "spaces": "With + Python adds no spaces. Put them inside the speech marks: \"is \" and \" from \"."
+      }
+    },
+    {
+      "id": "fix-score",
+      "title": "Fix the score",
+      "starter": "score = 7\nprint(\"Your score is \" + score)",
+      "tests": [
+        {
+          "input": "",
+          "output": "Your score is 7"
+        }
+      ],
+      "hints": {
+        "error": "+ can only join text to text. Wrap the number in str(), like str(score).",
+        "spaces": "There is already a space at the end of \"Your score is \". Don't add another."
+      }
+    },
+    {
+      "id": "favourite-things",
+      "title": "Favourite things",
+      "starter": "food = input()\nprint(\"You like\", food)\nanimal = input()\n",
+      "tests": [
+        {
+          "input": "pizza\ncats",
+          "output": "You like pizza\nYour favourite animal is cats"
+        },
+        {
+          "input": "chips\ndogs",
+          "output": "You like chips\nYour favourite animal is dogs"
+        }
+      ],
+      "hints": {
+        "lines": "You need a second print() line for the animal: Your favourite animal is cats.",
+        "spaces": "The comma adds the space. Don't put a space at the end of the text in speech marks.",
+        "other": "Print the variable animal with no speech marks, so Python looks inside the box."
+      }
+    },
+    {
+      "id": "two-styles",
+      "title": "Two printing styles",
+      "starter": "name = input()\nage = int(input())\n",
+      "tests": [
+        {
+          "input": "Sam\n12",
+          "output": "Sam is 12 years old\nSam is 12 years old"
+        },
+        {
+          "input": "Ava\n11",
+          "output": "Ava is 11 years old\nAva is 11 years old"
+        }
+      ],
+      "hints": {
+        "error": "With + you need str(age) to turn the number into text.",
+        "spaces": "In the + version, every space must be inside the speech marks: \" is \" and \" years old\".",
+        "lines": "Print the sentence twice: two print() lines."
+      }
+    }
+  ]
+}

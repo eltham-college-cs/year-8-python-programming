@@ -1,0 +1,74 @@
+---
+import '@fontsource/fredoka/500.css';
+import '@fontsource/fredoka/600.css';
+import '@fontsource/lexend/400.css';
+import '@fontsource/lexend/500.css';
+import '@fontsource/lexend/600.css';
+import '@fontsource/jetbrains-mono/500.css';
+import '../styles/site.css';
+import { url } from '../lib/url';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Sets the year theme. Shared pages leave it out. */
+  year?: number;
+}
+const { title, description = 'A beginner-friendly Python course for Year 8.', year } = Astro.props;
+const path = Astro.url.pathname.replace(/\/?$/, '/');
+const nav = [
+  { href: url('/year-8/'), label: 'Lessons', match: url('/year-8/') },
+  { href: url('/error-decoder/'), label: 'Error decoder', match: url('/error-decoder/') },
+  { href: url('/key-words/'), label: 'Key words', match: url('/key-words/') },
+];
+const fullTitle = title === 'Year 8 Python Programming' ? title : `${title} · Year 8 Python Programming`;
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="referrer" content="no-referrer" />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+  </head>
+  <body data-year={year ? String(year) : 'shared'}>
+    <a class="skip-link" href="#main">Skip to the lesson</a>
+    <header class="site-header">
+      <div class="inner">
+        <a class="brand" href={url('/')}>
+          <span class="brand-badge" aria-hidden="true">Py</span>
+          <span class="brand-name">Year 8 Python Programming</span>
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <ul>
+            {
+              nav.map((n) => (
+                <li>
+                  <a
+                    href={n.href}
+                    class:list={{ active: path.startsWith(n.match) && path !== n.match }}
+                    aria-current={path === n.match ? 'page' : undefined}
+                  >
+                    {n.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="wrap" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="inner">
+        <span>Year 8 Python Programming</span>
+        <span>Your lesson code and progress are saved in this browser.</span>
+      </div>
+    </footer>
+  </body>
+</html>

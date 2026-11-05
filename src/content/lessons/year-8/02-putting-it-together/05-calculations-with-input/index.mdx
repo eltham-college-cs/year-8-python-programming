@@ -1,0 +1,97 @@
+---
+year: 8
+codebashCourseYear: 7
+unit: Putting it together
+unitSlug: putting-it-together
+lesson: 5
+title: Calculations with input
+summary: Read numbers from the user, work something out, and print the answer.
+minutes: 15
+keywords: [input, int(), operator, order of operations, variable, ValueError]
+deck: https://slides.com/gig409/year-7-python-revision-input-variables-and-conversion
+codebashTopic: Mixed Revision
+codebashTasks: ["Shop change", "Cinema tickets"]
+yokaSays: "Hi, I'm Yoka! Let's turn Python into a calculator."
+---
+
+## The big idea
+
+Almost every program follows the same three steps, like a recipe:
+
+1. **Input**: read the numbers. Use `int(input())` so they are numbers, not text.
+2. **Process**: do the sum and keep the answer in a new variable.
+3. **Output**: print the answer.
+
+```python
+age = int(input())          # 1. input
+future_age = age + 5        # 2. process
+print("In five years:", future_age)   # 3. output
+```
+
+Read `int(input())` from the **inside out**: `input()` collects the text, `int()` turns it into a number, and `=` puts it in the box.
+
+<InputFlow typed="12" />
+
+<Note title="Maths order">
+Python does `*` and `/` before `+` and `-`. So `2 * 8 + 3 * 5` is `16 + 15`, which is `31`.
+</Note>
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="future-age" predict="If you type 12, what will it print?" />
+
+<LessonVideo clip="predictRun" />
+
+## Trace it
+
+Here is the same program in smaller steps. Assume the user types 12. Predict each row, then press Next step.
+Quotes show a string in the table; they are not printed.
+
+<TraceTable
+  code={`age_text = input()
+age = int(age_text)
+future_age = age + 5
+print("In five years:", future_age)`}
+  columns={["Line", "age_text", "age", "future_age", "Output"]}
+  rows={[
+    { line: 1, cells: ["1", "\"12\"", "—", "—", "—"] },
+    { line: 2, cells: ["2", "\"12\"", "12", "—", "—"] },
+    { line: 3, cells: ["3", "\"12\"", "12", "17", "—"] },
+    { line: 4, cells: ["4", "\"12\"", "12", "17", "In five years: 17"] }
+  ]}
+/>
+
+<Parsons
+  prompt="Put the Tuck Shop program in order: input, process, output."
+  lines={["money = int(input())", "price = int(input())", "change = money - price", "print(\"Your change is\", change, \"pounds\")"]}
+/>
+
+## Fill the gaps
+
+Replace each `___` so the program doubles a number, then adds 10. If you type 5, you should get 20.
+
+<PyChecker task="double-trouble" />
+
+## Fix it
+
+This program should print your change. It is missing the middle step.
+
+<PyChecker task="tuck-shop" />
+
+<LessonVideo clip="fixBug" />
+
+## Extra challenge
+
+<PyChecker task="cinema-trip" brief="Adults cost £8 and children cost £5. Read how many adults, then how many children. Print the total, like: <strong>The total cost is 31 pounds</strong>" />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "What does `5 * 3 + 4` give?", a: "19. Multiply first, then add." },
+  { q: "Why do we put `int()` around `input()` before doing maths?", a: "`input()` always gives text. `int()` turns it into a number so Python can do the sum." },
+  { q: "What happens if the user types seven instead of 7?", a: "A ValueError. `int()` can only convert digits, not words." }
+]} />
+
+<SelfRating question="Could you write a program that reads two numbers and adds them?" />

@@ -1,0 +1,74 @@
+---
+year: 8
+unit: Lists
+unitSlug: lists
+lesson: 15
+title: Making lists
+summary: One name that holds many values, and how to reach each one by its index.
+minutes: 15
+keywords: [list, item, index, len, IndexError]
+deck: https://slides.com/gig409/year-8-lists-in-python
+codebashTopic: Lists
+codebashTasks: ["Pick a player", "Shopping list"]
+---
+
+## The big idea
+
+If you catch yourself writing `score1`, `score2`, `score3`… you want a **list**: one variable that stores several values, in order.
+
+```python
+scores = [12, 19, 7, 25, 16]
+```
+
+Square brackets start and end the list, with a comma between each item. Text items need speech marks: `["Ava", "Ben"]`. An empty list is just `[]`.
+
+Each item has an **index**: its position number. Computers count from **0**.
+
+<MemoryBoxes list={{ name: "scores", items: ["12", "19", "7", "25", "16"] }} caption="Five items, so the last index is 4, not 5." />
+
+```python
+print(scores[0])   # 12
+print(scores[2])   # 7
+print(scores[4])   # 16
+print(len(scores)) # 5
+```
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="primm" predict="Write down all four lines of output before you run it." />
+
+<LessonVideo clip="predictRun" />
+
+## Spot the difference
+
+When Python prints a whole list, it shows the brackets and uses **single** quotes around text.
+
+<SpotTheDifference pairs={[
+  { kind: "Whole list", a: "['Ava', 'Ben']", b: "Ava Ben", answer: "print(names) shows the brackets and quotes. print(names[0], names[1]) shows just the names." },
+  { kind: "Index", a: "Ava", b: "Ben", answer: "names[0] is Ava, the first item. names[1] is Ben. Counting starts at 0." },
+  { kind: "Length", a: "2", b: "1", answer: "len(names) is 2. The last index is 1, one less than the length." }
+]} />
+
+## Make it
+
+<PyChecker task="top-three" brief="Create a list called <strong>games</strong> holding <strong>Minecraft</strong>, <strong>Fortnite</strong> and <strong>Roblox</strong>, in that order. Print the whole list, then item 0." />
+
+<PyChecker task="pick-a-player" brief="Print item 0, item 2 and the last item, one per line." />
+
+## Fix the bug
+
+<PyChecker task="out-of-range" />
+
+<LessonVideo clip="fixBug" />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "What is the index of the first item in a list?", a: "0." },
+  { q: "A list has 5 items. What is the last index?", a: "4. It's always one less than the length." },
+  { q: "Write the line that makes a list called `pets` holding dog and cat.", a: "`pets = [\"dog\", \"cat\"]`" }
+]} />
+
+<SelfRating question="Could you explain why the last index is one less than the length?" />

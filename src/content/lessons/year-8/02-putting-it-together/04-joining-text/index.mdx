@@ -1,0 +1,81 @@
+---
+year: 8
+codebashCourseYear: 7
+unit: Putting it together
+unitSlug: putting-it-together
+lesson: 4
+title: "Joining text: comma or plus?"
+summary: Two ways to build a sentence, and how to get the spaces exactly right.
+minutes: 15
+keywords: [concatenation, str(), string, integer, TypeError]
+deck: https://slides.com/gig409/year-7-mixed-revision-answers-tasks-10-16
+codebashTopic: Mixed Revision
+codebashTasks: ["Club badge", "Two ways"]
+yokaSays: "Hi, I'm Yoka! Let's glue some words together."
+---
+
+## The big idea
+
+There are two ways to join things in `print()`.
+
+**A comma is glue with gaps.** Python puts a space between each part for you, and it is happy to mix text and numbers.
+
+**A plus is superglue.** It sticks text together with **no** space, and it only joins text to text.
+
+```python
+name = "Sam"
+age = 12
+print("Hi", name, "you are", age)          # Hi Sam you are 12
+print("Hi " + name + " you are " + str(age))  # Hi Sam you are 12
+```
+
+Both lines print the same thing. With `+` you type the spaces inside the speech marks yourself,
+and you must turn numbers into text with `str()`.
+
+<Note title="Joining is called concatenation">
+`"Hi" + "Sam"` gives `HiSam`. No space is added. Put the space inside the speech marks: `"Hi " + "Sam"`.
+</Note>
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="name-badge" predict="If you type Sam and then 7G, what will it print? Where does each space come from?" />
+
+<LessonVideo clip="predictRun" />
+
+## Spot the difference
+
+Each pair was printed with `+`. One version forgot a space. The dots show where the spaces are.
+
+<SpotTheDifference pairs={[
+  { kind: "Spaces", a: "Hello, my name is Sam", b: "Hello, my name isSam", answer: "The second one is missing the space after is. Put it inside the speech marks: \"is \"." },
+  { kind: "Spaces", a: "Sam scored 27", b: "Samscored27", answer: "With + you add your own spaces: name + \" scored \" + str(total)." },
+  { kind: "Spaces", a: "You like pizza", b: "You like  pizza", answer: "Two spaces! A comma adds one space already, so \"You like \" with a space gives two." }
+]} />
+
+## Fix the bug
+
+This program crashes. Run it and read the error. How can you join a number onto text?
+
+<PyChecker task="fix-score" />
+
+<LessonVideo clip="fixBug" />
+
+## Practise with commas
+
+<PyChecker task="favourite-things" brief="Finish the program. It reads a favourite food, then a favourite animal. Use a comma in print() for the second line, just like the first." />
+
+## Extra challenge
+
+<PyChecker task="two-styles" brief="Read a name, then an age. Print <strong>Sam is 12 years old</strong> twice: first using commas, then using <code>+</code> and <code>str()</code>. Both lines must match exactly." />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "Which one adds the spaces for you: a comma or a plus?", a: "A comma." },
+  { q: "What does `print(\"Hi\" + \"Sam\")` show?", a: "HiSam, with no space." },
+  { q: "Why does `\"Your score is \" + 7` crash?", a: "+ can only join text to text. Use `str(7)`, or use a comma instead." }
+]} />
+
+<SelfRating question="Could you explain when you need str()?" />

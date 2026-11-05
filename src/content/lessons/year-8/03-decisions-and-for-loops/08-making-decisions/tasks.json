@@ -1,0 +1,72 @@
+{
+  "tasks": [
+    {
+      "id": "grades",
+      "title": "Grade checker",
+      "starter": "mark = int(input())\nif mark >= 70:\n    print(\"Distinction\")\nelif mark >= 50:\n    print(\"Merit\")\nelif mark >= 40:\n    print(\"Pass\")\nelse:\n    print(\"Not yet\")",
+      "tests": [
+        {
+          "input": "55",
+          "output": "Merit"
+        },
+        {
+          "input": "41",
+          "output": "Pass"
+        },
+        {
+          "input": "70",
+          "output": "Distinction"
+        },
+        {
+          "input": "39",
+          "output": "Not yet"
+        }
+      ]
+    },
+    {
+      "id": "ticket-price",
+      "title": "Ticket price",
+      "starter": "age = int(input())\nif age < 12\n    print(\"Child ticket\")\nelse:\n    print(\"Adult ticket\")",
+      "tests": [
+        {
+          "input": "8",
+          "output": "Child ticket"
+        },
+        {
+          "input": "12",
+          "output": "Adult ticket"
+        },
+        {
+          "input": "30",
+          "output": "Adult ticket"
+        }
+      ],
+      "hints": {
+        "error": "Lines starting with if, elif or else must end with a colon."
+      }
+    },
+    {
+      "id": "password-check",
+      "title": "Password check",
+      "starter": "password = input()\n",
+      "tests": [
+        {
+          "input": "gold",
+          "output": "Access granted"
+        },
+        {
+          "input": "silver",
+          "output": "Access denied"
+        },
+        {
+          "input": "Gold",
+          "output": "Access denied"
+        }
+      ],
+      "hints": {
+        "error": "Use == to compare, and finish the if and else lines with a colon.",
+        "other": "Compare with == \"gold\" in lowercase. \"Gold\" with a capital is a different password."
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+---
+year: 8
+codebashCourseYear: 7
+unit: Python basics
+unitSlug: python-basics
+lesson: 3
+title: Input and conversion
+summary: Today we teach the computer to listen, and to turn words into numbers.
+minutes: 15
+keywords: [input, prompt, int(), str(), type conversion, TypeError, ValueError, concatenation]
+deck: https://slides.com/gig409/year-7-lesson-3-input-and-conversion
+codebashTopic: Input, Output and Variables
+codebashTasks: ["Hours to minutes", "Rectangle size"]
+yokaSays: "Hi, I'm Yoka! Let's get the computer listening."
+draft: false
+---
+
+## The big idea
+
+`input()` is like a waiter taking your order. The program stops and waits until
+you answer. Whatever you type comes back as **text**, even if it looks like a number.
+
+`int()` is like a currency exchange: it swaps the text `"15"` for the number `15`,
+so you can do sums with it.
+
+<InputFlow typed="15" />
+
+<Note title="Always store the answer in a box">
+`name = input()` keeps the answer in the variable `name`. Without the `name =` part, the answer is thrown away.
+</Note>
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="hello-name" predict="If you type Susie, what will it print?" />
+
+<LessonVideo clip="predictRun" />
+
+## Match it exactly
+
+The dots show spaces. Can you find what's different in each pair?
+
+<SpotTheDifference pairs={[
+  { kind: "Spaces", a: "Total: 25", b: "Total:  25", answer: "There are two spaces after the colon." },
+  { kind: "Capitals", a: "Your age is", b: "your age is", answer: "The first letter should be a capital Y." },
+  { kind: "Punctuation", a: "Hello, Sam!", b: "Hello Sam.", answer: "The comma is missing, and . should be !" }
+]} />
+
+## Fix the bug
+
+This program crashes. Press Run, type your age, and read the error. Then fix it.
+
+<PyChecker task="age-in-ten" />
+
+<LessonVideo clip="fixBug" />
+
+## Extra challenge
+
+<PyChecker task="minutes-to-seconds" brief="Ask for a number of minutes and print how many seconds that is, like: <strong>3 minutes is 180 seconds</strong>" />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "What does `input()` always give you back?", a: "Text (a string), even if you type a number." },
+  { q: "Which function turns `\"15\"` into the number `15`?", a: "`int()`" },
+  { q: "What happens with `int(\"cat\")`?", a: "A ValueError, because \"cat\" isn't a whole number." }
+]} />
+
+<SelfRating question="Could you explain input() to someone else?" />

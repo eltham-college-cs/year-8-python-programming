@@ -1,0 +1,69 @@
+{
+  "tasks": [
+    {
+      "id": "predict-score",
+      "title": "Changing score",
+      "starter": "score = 8\nprint(\"score\")\nprint(score + 2)\nscore = score + 5\nprint(score)",
+      "tests": [
+        {
+          "input": "",
+          "output": "score\n10\n13"
+        }
+      ]
+    },
+    {
+      "id": "swap",
+      "title": "Swap two values",
+      "starter": "a = input()\nb = input()\ntemp = a\n\nprint(a, b)",
+      "tests": [
+        {
+          "input": "red\nblue",
+          "output": "blue red"
+        },
+        {
+          "input": "cat\ndog",
+          "output": "dog cat"
+        }
+      ],
+      "hints": {
+        "other": "temp is holding a copy of a. Now put b into a, then put temp into b."
+      }
+    },
+    {
+      "id": "bug-hunt",
+      "title": "Bug hunt",
+      "starter": "score = int(input())\nbonus = 5\ntotal = score + Bonus\nprint(\"Total: \" + total)",
+      "tests": [
+        {
+          "input": "10",
+          "output": "Total: 15"
+        },
+        {
+          "input": "3",
+          "output": "Total: 8"
+        }
+      ],
+      "hints": {
+        "spaces": "\"Total: \" already ends with a space. If you swapped + for a comma, take that space out."
+      }
+    },
+    {
+      "id": "changing-score",
+      "title": "Changing score",
+      "starter": "score = int(input())\nbonus = int(input())\npenalty = int(input())\nscore = score + bonus\n\nprint(\"Final score:\", score)",
+      "tests": [
+        {
+          "input": "10\n7\n3",
+          "output": "Final score: 14"
+        },
+        {
+          "input": "20\n5\n10",
+          "output": "Final score: 15"
+        }
+      ],
+      "hints": {
+        "other": "Take the penalty away from score, and store it back in score: score = score - penalty."
+      }
+    }
+  ]
+}

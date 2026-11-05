@@ -1,0 +1,106 @@
+---
+year: 8
+unit: Lists
+unitSlug: lists
+lesson: 16
+title: Changing lists
+summary: Add to the end with append, overwrite an item, and swap two items safely.
+minutes: 20
+keywords: [append, list, index, len, temporary variable]
+deck: https://slides.com/gig409/year-8-lists-in-python
+codebashTopic: Lists
+codebashTasks: ["Team sheet", "Swap the ends", "Five scores"]
+---
+
+## The big idea
+
+A list is not fixed once you have made it.
+
+```python
+scores = [12, 19, 7]
+scores.append(25)    # add 25 to the end: [12, 19, 7, 25]
+scores[0] = 20       # overwrite item 0:   [20, 19, 7, 25]
+print(scores[-1])    # -1 is always the last item: 25
+print(len(scores))   # how many items: 4
+```
+
+Read `scores.append(25)` aloud as "scores, append 25": the list is being told to do something.
+
+<Note title="Never write list = list.append(...)">
+`append` changes the list itself and hands back nothing (`None`). `shopping = shopping.append("milk")` replaces your list with `None`.
+</Note>
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="build-list" predict="What will the three lines be?" />
+
+<TraceTable
+  code={`scores = []
+scores.append(7)
+scores.append(9)
+scores.append(4)
+print(scores)
+print(scores[0])
+print(len(scores))`}
+  columns={["Line", "scores", "What happened"]}
+  rows={[
+    { line: 1, cells: ["1", "[]", "an empty list is made"] },
+    { line: 2, cells: ["2", "[7]", "7 joins the end"] },
+    { line: 3, cells: ["3", "[7, 9]", "9 joins the end"] },
+    { line: 4, cells: ["4", "[7, 9, 4]", "4 joins the end"] },
+    { line: 5, cells: ["5", "[7, 9, 4]", "prints [7, 9, 4]"] },
+    { line: 6, cells: ["6", "[7, 9, 4]", "prints 7, the first item"] },
+    { line: 7, cells: ["7", "[7, 9, 4]", "prints 3, how many items"] }
+  ]}
+/>
+
+<LessonVideo clip="predictRun" />
+
+## Make it
+
+<PyChecker task="team-sheet" brief="Read three names and append each one to the list. Then print the list and how many are on it." />
+
+## Fix the bug
+
+This prints `None`. Where did the list go?
+
+<PyChecker task="vanishing-list" />
+
+<LessonVideo clip="fixBug" />
+
+## Swap the ends
+
+To swap two items, park one in `temp` first. Otherwise it is overwritten and lost.
+
+<TraceTable
+  code={`names = ["Ava", "Ben", "Chloe"]
+temp = names[0]
+names[0] = names[2]
+names[2] = temp
+print(names)`}
+  columns={["Line", "names", "temp"]}
+  rows={[
+    { line: 1, cells: ["1", "['Ava', 'Ben', 'Chloe']", "—"] },
+    { line: 2, cells: ["2", "['Ava', 'Ben', 'Chloe']", "'Ava'"] },
+    { line: 3, cells: ["3", "['Chloe', 'Ben', 'Chloe']", "'Ava'"] },
+    { line: 4, cells: ["4", "['Chloe', 'Ben', 'Ava']", "'Ava'"] }
+  ]}
+/>
+
+<PyChecker task="swap-ends" brief="Swap the first and last names, then print the list. Ava, Ben, Chloe should print <strong>['Chloe', 'Ben', 'Ava']</strong>." />
+
+## Extra challenge
+
+<PyChecker task="five-scores" brief="Use a <strong>for</strong> loop to read five whole numbers and append each one to <strong>scores</strong>. Then print the list." />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "Where does `append` put the new item?", a: "At the end of the list." },
+  { q: "What does `scores[0] = 20` do?", a: "Overwrites item 0 with 20. Nothing moves along; the old value is gone." },
+  { q: "`colours = [\"red\", \"blue\"]`, `temp = colours[0]`, `colours[0] = colours[1]`. What does the list hold now?", a: "['blue', 'blue']. Red is only in temp now, which is why you need it." }
+]} />
+
+<SelfRating question="Could you append to a list and swap two items?" />

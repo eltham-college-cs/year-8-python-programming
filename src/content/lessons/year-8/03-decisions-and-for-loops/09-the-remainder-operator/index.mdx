@@ -1,0 +1,71 @@
+---
+year: 8
+unit: Decisions and for loops
+unitSlug: decisions-and-for-loops
+lesson: 9
+title: The remainder operator %
+summary: Find what is left over after dividing, and use it to spot even numbers.
+minutes: 15
+keywords: [remainder, comparison operator, condition, selection]
+deck: https://slides.com/gig409/python-recap-year-7-into-year-8
+codebashTopic: Decisions and loops
+codebashTasks: ["Divisible by 3?", "Change machine"]
+---
+
+## The big idea
+
+`%` gives you **what is left over** after dividing. Think of sharing sweets fairly:
+
+- 7 sweets between 2 friends: each gets 3, and **1** is left over. So `7 % 2` is `1`.
+- 6 sweets between 3 friends: each gets 2, and **0** are left over. So `6 % 3` is `0`.
+
+A remainder of 0 means it divided exactly. That gives us a neat test:
+
+```python
+if x % 2 == 0:
+    print("even")
+```
+
+<LessonVideo clip="bigIdea" />
+
+## Trace it
+
+<TraceTable
+  code={`for x in range(1, 7):
+    print(x, x % 3)`}
+  columns={["x", "x % 3", "Why"]}
+  rows={[
+    { line: 2, cells: ["1", "1", "3 fits 0 times, 1 left"] },
+    { line: 2, cells: ["2", "2", "3 fits 0 times, 2 left"] },
+    { line: 2, cells: ["3", "0", "divides exactly"] },
+    { line: 2, cells: ["4", "1", "3 fits once, 1 left"] },
+    { line: 2, cells: ["5", "2", "3 fits once, 2 left"] },
+    { line: 2, cells: ["6", "0", "divides exactly"] }
+  ]}
+/>
+
+## Predict, then run
+
+<PyChecker task="remainders" predict="Work out all three answers on paper first." />
+
+<LessonVideo clip="predictRun" />
+
+## Odd or even?
+
+<PyChecker task="odd-or-even" brief="Read a whole number. Print <strong>7 is odd</strong> or <strong>10 is even</strong>." />
+
+## Fix the bug
+
+<PyChecker task="divisible-by-5" />
+
+<LessonVideo clip="fixBug" />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "What is `7 % 3`?", a: "1. 3 fits into 7 twice (6), with 1 left over." },
+  { q: "Write the condition that is True only when x divides exactly by 5.", a: "`x % 5 == 0`" },
+  { q: "What is `10 % 2`, and what does that tell you?", a: "0, so 10 is even." }
+]} />
+
+<SelfRating question="Could you use % to test for even, odd or exact division?" />

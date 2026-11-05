@@ -1,0 +1,60 @@
+{
+  "tasks": [
+    {
+      "id": "primm",
+      "title": "Predict the list",
+      "starter": "scores = [12, 19, 7]\nprint(scores)\nprint(scores[0])\nscores.append(25)\nprint(scores)\nprint(len(scores))",
+      "tests": [
+        {
+          "input": "",
+          "output": "[12, 19, 7]\n12\n[12, 19, 7, 25]\n4"
+        }
+      ]
+    },
+    {
+      "id": "top-three",
+      "title": "My top three",
+      "starter": "",
+      "tests": [
+        {
+          "input": "",
+          "output": "['Minecraft', 'Fortnite', 'Roblox']\nMinecraft"
+        }
+      ],
+      "hints": {
+        "error": "Each game needs speech marks, with commas between them, inside square brackets.",
+        "punctuation": "Python adds the brackets and quotes when it prints a list. Just print(games).",
+        "capitals": "Check the capital letters in each game name."
+      }
+    },
+    {
+      "id": "pick-a-player",
+      "title": "Pick a player",
+      "starter": "players = [\"Ava\", \"Ben\", \"Chloe\", \"Dev\", \"Eli\"]\nprint(players[0])\n",
+      "tests": [
+        {
+          "input": "",
+          "output": "Ava\nChloe\nEli"
+        }
+      ],
+      "hints": {
+        "other": "Item 2 is the third name. For the last item, use players[4] or players[-1].",
+        "error": "There are 5 players, so the indexes go from 0 to 4."
+      }
+    },
+    {
+      "id": "out-of-range",
+      "title": "Out of range",
+      "starter": "pets = [\"dog\", \"cat\", \"fish\"]\nprint(pets[3])",
+      "tests": [
+        {
+          "input": "",
+          "output": "fish"
+        }
+      ],
+      "hints": {
+        "error": "Three items means the indexes are 0, 1 and 2. There is no item 3."
+      }
+    }
+  ]
+}

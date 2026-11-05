@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { errors } from '../data/errors';
+import { highlightHtml } from '../lib/highlight';
+---
+
+<BaseLayout title="Error decoder" description="Python error messages explained in plain English.">
+  <section class="hero">
+    <div class="hero-text">
+      <span class="eyebrow">Year 8 · Reference</span>
+      <h1>Error decoder</h1>
+      <p class="summary">
+        An error message is Python telling you exactly where it got stuck. Read the <strong>last line</strong> first:
+        it names the error and the line number.
+      </p>
+    </div>
+  </section>
+
+  <div class="entry-list">
+    {
+      errors.map((e) => (
+        <article class="entry" id={e.id}>
+
+          <h2 style="font-size:28px">{e.name}</h2>
+          <div class="looks">{e.looksLike}</div>
+          <p>{e.meaning}</p>
+          <div class="before-after">
+            <figure>
+              <figcaption>Broken</figcaption>
+              <pre class="code"><code set:html={highlightHtml(e.broken)} /></pre>
+            </figure>
+            <figure>
+              <figcaption>Fixed</figcaption>
+              <pre class="code"><code set:html={highlightHtml(e.fixed)} /></pre>
+            </figure>
+          </div>
+          <div>
+            <strong>Check:</strong>
+            <ul>
+              {e.check.map((c) => (
+                <li>{c}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</BaseLayout>

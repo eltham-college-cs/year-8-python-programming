@@ -1,0 +1,52 @@
+{
+  "tasks": [
+    {
+      "id": "three-prints",
+      "title": "Comma, plus, times",
+      "starter": "print(\"Year\", 8)\nprint(\"A\" + \"B\")\nprint(7 * 2)",
+      "tests": [
+        {
+          "input": "",
+          "output": "Year 8\nAB\n14"
+        }
+      ]
+    },
+    {
+      "id": "next-year",
+      "title": "Next year",
+      "starter": "name = input()\nage = input()\nprint(\"Hello \" + name + \", next year you will be\", age + 1)",
+      "tests": [
+        {
+          "input": "Sam\n12",
+          "output": "Hello Sam, next year you will be 13"
+        },
+        {
+          "input": "Ava\n13",
+          "output": "Hello Ava, next year you will be 14"
+        }
+      ],
+      "hints": {
+        "error": "age holds text, so age + 1 can't work. Cast it with int() when you read it.",
+        "spaces": "The comma before age + 1 adds one space. Check the spaces inside your speech marks."
+      }
+    },
+    {
+      "id": "double-it",
+      "title": "Double it",
+      "starter": "",
+      "tests": [
+        {
+          "input": "12",
+          "output": "12 doubled is 24"
+        },
+        {
+          "input": "7",
+          "output": "7 doubled is 14"
+        }
+      ],
+      "hints": {
+        "other": "If you got 1212, the number is still text. Use int(input())."
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "tasks": [
+    {
+      "id": "no-update",
+      "title": "Fix the countdown",
+      "starter": "count = 5\nwhile count > 0:\n    print(count)\nprint(\"Lift off!\")",
+      "tests": [
+        {
+          "input": "",
+          "output": "5\n4\n3\n2\n1\nLift off!"
+        }
+      ],
+      "hints": {
+        "timeout": "count never changes, so count > 0 is True forever. Add an update inside the loop.",
+        "lines": "Is your update indented inside the loop? Is Lift off! outside it?"
+      }
+    },
+    {
+      "id": "mid-loop",
+      "title": "Checked at the top",
+      "starter": "count = 3\nwhile count > 0:\n    count = count - 1\n    print(\"count is now\", count)",
+      "tests": [
+        {
+          "input": "",
+          "output": "count is now 2\ncount is now 1\ncount is now 0"
+        }
+      ]
+    },
+    {
+      "id": "wrong-direction",
+      "title": "Ticket sale",
+      "starter": "tickets = 5\nwhile tickets > 0:\n    print(tickets)\n    tickets = tickets + 1\nprint(\"Sold out!\")",
+      "tests": [
+        {
+          "input": "",
+          "output": "5\n4\n3\n2\n1\nSold out!"
+        }
+      ],
+      "hints": {
+        "timeout": "tickets is changing, but in the wrong direction. It moves away from 0."
+      }
+    },
+    {
+      "id": "sneaky",
+      "title": "The sneaky one",
+      "brief": "This loop should add 2 to total each time round until total reaches 10, then print how many steps it took: <strong>Steps: 5</strong>.",
+      "starter": "total = 0\nsteps = 0\nwhile total < 10:\n    steps = steps + 1\nprint(\"Steps:\", steps)",
+      "tests": [
+        {
+          "input": "",
+          "output": "Steps: 5"
+        }
+      ],
+      "hints": {
+        "timeout": "The loop updates steps, but the condition is about total. Which variable needs to change?"
+      }
+    }
+  ]
+}

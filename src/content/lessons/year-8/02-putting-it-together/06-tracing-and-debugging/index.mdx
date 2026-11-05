@@ -1,0 +1,104 @@
+---
+year: 8
+codebashCourseYear: 7
+unit: Putting it together
+unitSlug: putting-it-together
+lesson: 6
+title: Tracing and debugging
+summary: Be the computer. Track every box line by line, then hunt down the bugs.
+minutes: 20
+keywords: [trace table, variable, temporary variable, NameError, TypeError, comment]
+deck: https://slides.com/gig409/year-7-python-revision-input-variables-and-conversion
+codebashTopic: Mixed Revision
+codebashTasks: ["Final score", "Scoreboard"]
+yokaSays: "Hi, I'm Yoka! Today you're the computer."
+---
+
+## The big idea
+
+A **trace table** lets you be the computer. You go one line at a time and write down what is in every box.
+
+The trickiest line is one like this:
+
+```python
+score = score + 5
+```
+
+Read it from the **right**: take what is in `score`, add 5, then put the answer back in the `score` box. The old value is thrown away.
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+Write down all three lines of output before you run it. Why is the first one a word?
+
+<TraceTable
+  code={`score = 8
+print("score")
+print(score + 2)
+score = score + 5
+print(score)`}
+  columns={["Line", "score", "Output"]}
+  rows={[
+    { line: 1, cells: ["1", "8", "—"] },
+    { line: 2, cells: ["2", "8", "score"] },
+    { line: 3, cells: ["3", "8", "10"] },
+    { line: 4, cells: ["4", "13", "—"] },
+    { line: 5, cells: ["5", "13", "13"] }
+  ]}
+/>
+
+<PyChecker task="predict-score" predict="What three lines will it print?" />
+
+<LessonVideo clip="predictRun" />
+
+## Swap two values
+
+To swap two boxes you need a spare box called `temp`. Without it, the first value is overwritten and lost.
+Assume the user types red, then blue.
+
+<TraceTable
+  code={`a = input()
+b = input()
+temp = a
+a = b
+b = temp
+print(a, b)`}
+  columns={["Line", "a", "b", "temp", "Output"]}
+  rows={[
+    { line: 1, cells: ["1", "\"red\"", "—", "—", "—"] },
+    { line: 2, cells: ["2", "\"red\"", "\"blue\"", "—", "—"] },
+    { line: 3, cells: ["3", "\"red\"", "\"blue\"", "\"red\"", "—"] },
+    { line: 4, cells: ["4", "\"blue\"", "\"blue\"", "\"red\"", "—"] },
+    { line: 5, cells: ["5", "\"blue\"", "\"red\"", "\"red\"", "—"] },
+    { line: 6, cells: ["6", "\"blue\"", "\"red\"", "\"red\"", "blue red"] }
+  ]}
+/>
+
+<PyChecker task="swap" brief="Finish the swap. If you type <strong>red</strong> then <strong>blue</strong>, it should print <strong>blue red</strong>." />
+
+## Bug hunt
+
+This program has **two** bugs. Run it, read the first error and fix it. Then run it again to find the next one.
+
+<PyChecker task="bug-hunt" />
+
+<Note title="Debug checklist">
+Is every name spelt the same, with the same capitals? Does text have speech marks? Do you need `int()` before doing maths? Do you need `str()` before joining with `+`?
+</Note>
+
+<LessonVideo clip="fixBug" />
+
+## Extra challenge
+
+<PyChecker task="changing-score" brief="Read a starting score, a bonus and a penalty. Add the bonus, then take away the penalty. Start 10, bonus 7, penalty 3 should print <strong>Final score: 14</strong>." />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "What does `score = score + 5` do?", a: "Takes the value in score, adds 5, and puts the answer back in score." },
+  { q: "Why do we need `temp` when swapping?", a: "To keep a copy of the first value. Otherwise it is overwritten and lost." },
+  { q: "If `a` is red and `b` is blue, what happens with `a = b` then `b = a`?", a: "Both end up blue. The red was thrown away on the first line." }
+]} />
+
+<SelfRating question="Could you fill in a trace table for a short program?" />

@@ -1,0 +1,65 @@
+{
+  "tasks": [
+    {
+      "id": "hello-name",
+      "title": "Hello, what's your name?",
+      "starter": "name = input()\nprint(\"Hello,\", name + \"!\")",
+      "tests": [
+        {
+          "input": "Susie",
+          "output": "Hello, Susie!"
+        },
+        {
+          "input": "Ade",
+          "output": "Hello, Ade!"
+        },
+        {
+          "input": "Sam",
+          "output": "Hello, Sam!"
+        }
+      ],
+      "hints": {
+        "capitals": "Look at the very first letter. Python cares about capital letters.",
+        "spaces": "A comma in print() already adds a space. Check you haven't added another.",
+        "punctuation": "Check the comma after Hello and the ! at the end."
+      }
+    },
+    {
+      "id": "age-in-ten",
+      "title": "Age in 10 years",
+      "starter": "age = input()\nprint(\"In 10 years you will be\", age + 10)",
+      "note": "Starter is deliberately broken (TypeError). The child fixes it with int().",
+      "tests": [
+        {
+          "input": "12",
+          "output": "In 10 years you will be 22"
+        },
+        {
+          "input": "11",
+          "output": "In 10 years you will be 21"
+        }
+      ],
+      "hints": {
+        "error": "input() gives you text. Use int() to turn it into a number before adding 10."
+      }
+    },
+    {
+      "id": "minutes-to-seconds",
+      "title": "Minutes to seconds",
+      "starter": "",
+      "tests": [
+        {
+          "input": "3",
+          "output": "3 minutes is 180 seconds"
+        },
+        {
+          "input": "10",
+          "output": "10 minutes is 600 seconds"
+        }
+      ],
+      "hints": {
+        "spaces": "Use commas in print() and let Python add the spaces for you."
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+---
+---
+<section class="course-progress" id="progress" aria-labelledby="progress-title" hidden>
+  <div>
+    <h2 id="progress-title">Your progress</h2>
+    <p class="progress-count" data-progress-count></p>
+    <progress aria-label="Lessons complete"></progress>
+    <p class="muted">A lesson is complete once you pass every coding task in it. Your progress is saved in this browser.</p>
+  </div>
+  <div class="actions">
+    <a class="btn btn-gold" data-continue>Continue learning</a>
+    <button class="btn btn-soft" type="button" data-download>Download progress report (CSV)</button>
+  </div>
+</section>
+
+<script>
+  import { confidenceLabels, lessonProgress, progressCsv, type ProgressLesson } from '../lib/progress';
+
+  const panel = document.querySelector<HTMLElement>('.course-progress')!;
+  const count = panel.querySelector<HTMLElement>('[data-progress-count]')!;
+  const bar = panel.querySelector('progress')!;
+  const next = panel.querySelector<HTMLAnchorElement>('[data-continue]')!;
+  const download = panel.querySelector<HTMLButtonElement>('[data-download]')!;
+  const cards = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-progress-lesson]'), (link) => ({
+    link,
+    lesson: JSON.parse(link.dataset.progressLesson!) as ProgressLesson,
+    chip: link.querySelector<HTMLElement>('.rating-chip')!,
+  }));
+
+  function refresh() {
+    let completed = 0;
+    let passed = 0;
+    let total = 0;
+    let nextLesson: HTMLAnchorElement | undefined;
+    for (const { lesson, link, chip } of cards) {
+      const progress = lessonProgress(lesson);
+      passed += progress.passed;
+      total += progress.total;
+      if (progress.complete) completed++;
+      else nextLesson ??= link;
+      chip.textContent = progress.status;
+      chip.dataset.r = progress.complete ? 'yes' : '';
+      chip.hidden = false;
+      const rating = link.querySelector<HTMLElement>('[data-confidence]')!;
+      rating.textContent = progress.confidence ? `Confidence — ${confidenceLabels[progress.confidence]}` : '';
+    }
+    count.textContent = `${completed} of ${cards.length} lessons complete · ${passed} of ${total} coding tasks passed`;
+    bar.max = cards.length;
+    bar.value = completed;
+    next.hidden = !nextLesson;
+    if (nextLesson) {
+      next.href = nextLesson.href;
+      next.textContent = completed === 0 && passed === 0 ? 'Start or resume lesson 1' : 'Continue learning';
+    }
+    panel.hidden = false;
+  }
+
+  download.addEventListener('click', () => {
+    const blob = new Blob([progressCsv(cards.map(({ lesson }) => lesson))], { type: 'text/csv;charset=utf-8' });
+    const address = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = address;
+    link.download = 'year-8-python-progress.csv';
+    document.body.append(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(address), 1000);
+  });
+
+  refresh();
+  window.addEventListener('pageshow', refresh);
+  window.addEventListener('storage', refresh);
+</script>
+
+<style>
+  .course-progress {
+    padding: 24px;
+    margin: 28px 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--panel);
+  }
+  h2 {
+    margin: 0 0 8px;
+  }
+  p {
+    margin: 8px 0;
+  }
+  .progress-count {
+    font-weight: 600;
+  }
+  progress {
+    display: block;
+    width: min(100%, 480px);
+    height: 14px;
+    accent-color: var(--pass);
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .actions [hidden] {
+    display: none;
+  }
+</style>

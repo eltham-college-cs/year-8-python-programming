@@ -1,0 +1,87 @@
+{
+  "tasks": [
+    {
+      "id": "password",
+      "title": "Password loop",
+      "starter": "PASSWORD = \"gold\"\nattempt = input()\nwhile attempt != PASSWORD:\n    print(\"Incorrect. Try again.\")\n    attempt = input()\nprint(\"Access granted.\")",
+      "tests": [
+        {
+          "input": "silver\nbronze\ngold",
+          "output": "Incorrect. Try again.\nIncorrect. Try again.\nAccess granted."
+        },
+        {
+          "input": "gold",
+          "output": "Access granted."
+        }
+      ]
+    },
+    {
+      "id": "lockout",
+      "title": "Locked out",
+      "starter": "PASSWORD = \"gold\"\ntries = 0\nattempt = \"\"\nwhile attempt != PASSWORD:\n    attempt = input()\n    tries = tries + 1\nif attempt == PASSWORD:\n    print(\"Access granted.\")\nelse:\n    print(\"Locked out.\")",
+      "tests": [
+        {
+          "input": "silver\nbronze\ncopper",
+          "output": "Locked out."
+        },
+        {
+          "input": "silver\ngold",
+          "output": "Access granted."
+        },
+        {
+          "input": "gold",
+          "output": "Access granted."
+        }
+      ],
+      "hints": {
+        "error": "The loop asked for a 4th password, but the user only had three tries. Add and tries < 3 to the while line."
+      }
+    },
+    {
+      "id": "age-check",
+      "title": "Age check",
+      "starter": "age = int(input())\n",
+      "tests": [
+        {
+          "input": "4\n99\n13",
+          "output": "Enter an age between 11 and 18.\nEnter an age between 11 and 18.\nThanks!"
+        },
+        {
+          "input": "12",
+          "output": "Thanks!"
+        },
+        {
+          "input": "18",
+          "output": "Thanks!"
+        }
+      ],
+      "hints": {
+        "error": "Is there an input() inside the loop? Without it, age never changes.",
+        "lines": "Check your condition: too young is age < 11, too old is age > 18, joined with or."
+      }
+    },
+    {
+      "id": "menu",
+      "title": "Game menu",
+      "starter": "choice = \"\"\n",
+      "tests": [
+        {
+          "input": "p\ns\nq",
+          "output": "Starting game...\nHigh score: 42\nBye!"
+        },
+        {
+          "input": "q",
+          "output": "Bye!"
+        },
+        {
+          "input": "s\ns\nq",
+          "output": "High score: 42\nHigh score: 42\nBye!"
+        }
+      ],
+      "hints": {
+        "error": "If you ran out of input, check the loop stops when choice is \"q\".",
+        "punctuation": "Starting game... has three full stops."
+      }
+    }
+  ]
+}

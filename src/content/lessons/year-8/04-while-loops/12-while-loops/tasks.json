@@ -1,0 +1,64 @@
+{
+  "tasks": [
+    {
+      "id": "countdown",
+      "title": "Countdown",
+      "starter": "count = 5\nwhile count > 0:\n    print(count)\n    count = count - 1\nprint(\"Lift off!\")",
+      "tests": [
+        {
+          "input": "",
+          "output": "5\n4\n3\n2\n1\nLift off!"
+        }
+      ]
+    },
+    {
+      "id": "countdown-n",
+      "title": "Countdown from any number",
+      "starter": "count = int(input())\n",
+      "tests": [
+        {
+          "input": "3",
+          "output": "3\n2\n1\nGo!"
+        },
+        {
+          "input": "10",
+          "output": "10\n9\n8\n7\n6\n5\n4\n3\n2\n1\nGo!"
+        }
+      ],
+      "hints": {
+        "lines": "Go! should print once, after the loop, so don't indent it. And stop before 0.",
+        "other": "Start value, condition, update: count > 0, and take one off each time."
+      }
+    },
+    {
+      "id": "seven-times",
+      "title": "7 times table",
+      "starter": "n = 1\nwhile ____:\n    print(7 * n)\n    n = n + 1",
+      "tests": [
+        {
+          "input": "",
+          "output": "7\n14\n21\n28\n35\n42\n49\n56\n63\n70\n77\n84"
+        }
+      ],
+      "hints": {
+        "error": "Replace ____ with a question about n, like n <= 12.",
+        "lines": "You need exactly 12 lines. Should the condition use < or <=?"
+      }
+    },
+    {
+      "id": "past-100",
+      "title": "Past 100",
+      "starter": "total = 0\nnumber = 0\n",
+      "tests": [
+        {
+          "input": "",
+          "output": "Last number: 14\nTotal: 105"
+        }
+      ],
+      "hints": {
+        "other": "Keep going while total <= 100. Inside the loop, add one to number, then add number to total.",
+        "lines": "Print two lines after the loop: Last number: and Total:."
+      }
+    }
+  ]
+}

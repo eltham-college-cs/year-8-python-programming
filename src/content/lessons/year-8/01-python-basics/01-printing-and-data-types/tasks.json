@@ -1,0 +1,50 @@
+{
+  "tasks": [
+    {
+      "id": "two-lines",
+      "title": "Hello and a sum",
+      "starter": "print(\"Hello, Eltham College!\")\nprint(5 * 3 + 4)",
+      "tests": [
+        {
+          "input": "",
+          "output": "Hello, Eltham College!\n19"
+        }
+      ],
+      "hints": {
+        "lines": "Each print() makes its own line. You should have exactly two lines.",
+        "other": "The second line is a sum. Python multiplies before it adds."
+      }
+    },
+    {
+      "id": "fix-speech-marks",
+      "title": "Fix the greeting",
+      "starter": "print(Hello, Year 8!)",
+      "tests": [
+        {
+          "input": "",
+          "output": "Hello, Year 8!"
+        }
+      ],
+      "hints": {
+        "error": "Text needs speech marks around it, at the start and at the end.",
+        "capitals": "Check the capital H and the capital Y.",
+        "punctuation": "Keep the comma and the ! inside the speech marks."
+      }
+    },
+    {
+      "id": "year-and-sum",
+      "title": "Year 8 and a sum",
+      "starter": "",
+      "tests": [
+        {
+          "input": "",
+          "output": "Year 8\n56"
+        }
+      ],
+      "hints": {
+        "lines": "You need two print() lines.",
+        "other": "Put 7 * 8 inside print() with no speech marks, so Python does the sum."
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "tasks": [
+    {
+      "id": "odd-even-loop",
+      "title": "Odd or even, six times",
+      "starter": "for x in range(1, 7):\n    if x % 2 == 0:\n        print(x, \"even\")\n    else:\n        print(x, \"odd\")",
+      "tests": [
+        {
+          "input": "",
+          "output": "1 odd\n2 even\n3 odd\n4 even\n5 odd\n6 even"
+        }
+      ]
+    },
+    {
+      "id": "buzz",
+      "title": "Buzz",
+      "starter": "n = int(input())\nfor x in range(1, n + 1):\n",
+      "tests": [
+        {
+          "input": "6",
+          "output": "1\n2\n3\n4\nBuzz\n6"
+        },
+        {
+          "input": "10",
+          "output": "1\n2\n3\n4\nBuzz\n6\n7\n8\n9\nBuzz"
+        }
+      ],
+      "hints": {
+        "error": "After the for line, indent the if by 4 spaces, and the prints inside it by 8.",
+        "lines": "Print exactly one line for each number: either the number or Buzz.",
+        "other": "x % 5 == 0 means x divides exactly by 5."
+      }
+    },
+    {
+      "id": "indent-bug",
+      "title": "Fix the indentation",
+      "starter": "for x in range(1, 7):\n    if x % 2 == 0:\n    print(x, \"even\")",
+      "tests": [
+        {
+          "input": "",
+          "output": "2 even\n4 even\n6 even"
+        }
+      ],
+      "hints": {
+        "error": "The print belongs inside the if, so it needs 8 spaces: 4 for the loop and 4 more for the if."
+      }
+    },
+    {
+      "id": "nested-tables",
+      "title": "Times tables grid",
+      "starter": "n = int(input())\n",
+      "tests": [
+        {
+          "input": "2",
+          "output": "1 x 1 = 1\n1 x 2 = 2\n2 x 1 = 2\n2 x 2 = 4"
+        },
+        {
+          "input": "3",
+          "output": "1 x 1 = 1\n1 x 2 = 2\n1 x 3 = 3\n2 x 1 = 2\n2 x 2 = 4\n2 x 3 = 6\n3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9"
+        }
+      ],
+      "hints": {
+        "lines": "With n = 2 you should get 4 lines. The inner loop runs fully for each outer value. Both ranges stop at n + 1.",
+        "other": "Use two loop variables, like i outside and j inside, and print(i, \"x\", j, \"=\", i * j)."
+      }
+    }
+  ]
+}

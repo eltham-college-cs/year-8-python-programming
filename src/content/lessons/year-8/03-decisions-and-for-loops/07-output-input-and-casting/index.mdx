@@ -1,0 +1,75 @@
+---
+year: 8
+unit: Decisions and for loops
+unitSlug: decisions-and-for-loops
+lesson: 7
+title: Output, input and casting
+summary: Review output, input and conversion before you start making decisions in Python.
+minutes: 15
+keywords: [print, input, int(), str(), type conversion, concatenation, TypeError]
+deck: https://slides.com/gig409/python-recap-year-7-into-year-8
+codebashTopic: Decisions and loops
+codebashTasks: ["Next year"]
+---
+
+## The big idea
+
+Three things to remember from the first two units:
+
+- **Comma or plus.** A comma in `print()` adds a space and accepts any type. A plus glues text together with no space, and refuses to mix text and numbers.
+- **`input()` always gives back a string**, even if the user types `12`.
+- **Casting** changes the type: `int()` turns text into a number for maths; `str()` turns a number into text for joining with `+`.
+
+<InputFlow typed="45" />
+
+<Note title="The 1212 surprise">
+If `age` holds the text `"12"`, then `age * 2` gives `1212`. Multiplying text repeats it. `int(age) * 2` gives `24`.
+</Note>
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="three-prints" predict="Write all three lines before you run it." />
+
+<LessonVideo clip="predictRun" />
+
+## Trace it
+
+The user types 45. Red text in your head means string, a plain number means integer. Notice `score` never changes.
+
+<TraceTable
+  code={`score = input()
+total = int(score) + 5
+msg = "You scored " + str(total)
+print(msg)`}
+  columns={["Line", "score", "total", "msg", "Output"]}
+  rows={[
+    { line: 1, cells: ["1", "\"45\"", "—", "—", "—"] },
+    { line: 2, cells: ["2", "\"45\"", "50", "—", "—"] },
+    { line: 3, cells: ["3", "\"45\"", "50", "\"You scored 50\"", "—"] },
+    { line: 4, cells: ["4", "\"45\"", "50", "\"You scored 50\"", "You scored 50"] }
+  ]}
+/>
+
+## Fix the bug
+
+This program should say how old you will be next year. It crashes. Fix it without changing the words.
+
+<PyChecker task="next-year" />
+
+<LessonVideo clip="fixBug" />
+
+## Extra challenge
+
+<PyChecker task="double-it" brief="Read a whole number and print it doubled, like: <strong>12 doubled is 24</strong>" />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "What is the difference between a comma and `+` in `print()`?", a: "A comma adds a space and accepts numbers. `+` adds no space and only joins text." },
+  { q: "`age = input()`, the user types 12, and `print(age * 2)` shows 1212. Why?", a: "age holds the string \"12\". Multiplying a string repeats it. Use `int(age) * 2`." },
+  { q: "What does `str(45)` do?", a: "Turns the number 45 into the text \"45\" so it can be joined with `+`." }
+]} />
+
+<SelfRating question="Could you explain when to use int() and when to use str()?" />

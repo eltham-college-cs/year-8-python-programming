@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+__pycache__/
+
+# Model answers stay on this computer: the repository is public.
+src/content/lessons/**/solutions.json
+codegrade/
+
+# Generated from the pinned npm dependency.
+/public/pyodide/

@@ -1,0 +1,69 @@
+---
+year: 8
+unit: Decisions and for loops
+unitSlug: decisions-and-for-loops
+lesson: 11
+title: Nesting
+summary: Put an if inside a loop, or a loop inside a loop. Indentation shows what belongs where.
+minutes: 15
+keywords: [nesting, indentation, for loop, remainder, selection]
+deck: https://slides.com/gig409/python-recap-year-7-into-year-8
+codebashTopic: Decisions and loops
+codebashTasks: ["Buzz", "Times table grid"]
+---
+
+## The big idea
+
+**Indentation is the structure.** 4 spaces in means "inside the loop". 8 spaces means "inside the if, which is inside the loop".
+
+- An **if inside a for** makes a fresh decision every time round.
+- A **for inside a for** works like a car's mileage counter: the inner loop spins all the way round for every single click of the outer loop.
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="odd-even-loop" predict="What will the first three lines be?" />
+
+<TraceTable
+  code={`for x in range(1, 7):
+    if x % 2 == 0:
+        print(x, "even")
+    else:
+        print(x, "odd")`}
+  columns={["x", "x % 2", "== 0 ?", "Branch", "Output"]}
+  rows={[
+    { line: 5, cells: ["1", "1", "False", "else", "1 odd"] },
+    { line: 3, cells: ["2", "0", "True", "if", "2 even"] },
+    { line: 5, cells: ["3", "1", "False", "else", "3 odd"] },
+    { line: 3, cells: ["4", "0", "True", "if", "4 even"] },
+    { line: 5, cells: ["5", "1", "False", "else", "5 odd"] },
+    { line: 3, cells: ["6", "0", "True", "if", "6 even"] }
+  ]}
+/>
+
+<LessonVideo clip="predictRun" />
+
+## Make it
+
+<PyChecker task="buzz" brief="Read a number n. For every number from 1 to n, print the number, but print <strong>Buzz</strong> instead if it divides exactly by 5." />
+
+## Fix the bug
+
+<PyChecker task="indent-bug" />
+
+<LessonVideo clip="fixBug" />
+
+## Extra challenge
+
+<PyChecker task="nested-tables" brief="Read a number n. Use a loop inside a loop to print every times-table line from <strong>1 x 1 = 1</strong> up to <strong>n x n</strong>." />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "A for loop with `range(1, 4)` has another `range(1, 4)` loop inside it. How many times does the inner print run?", a: "9 times: 3 for each of the 3 outer loops." },
+  { q: "What does a line indented by 8 spaces under an if inside a for mean?", a: "It is inside the if, which is inside the loop. It only runs when the condition is True, every time round." },
+  { q: "Is the if re-tested every time round the loop?", a: "Yes, from scratch, with the new value of the loop variable." }
+]} />
+
+<SelfRating question="Could you trace a loop with an if inside it?" />

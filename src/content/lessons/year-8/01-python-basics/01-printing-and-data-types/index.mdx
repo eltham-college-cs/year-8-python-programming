@@ -1,0 +1,74 @@
+---
+year: 8
+codebashCourseYear: 7
+unit: Python basics
+unitSlug: python-basics
+lesson: 1
+title: Printing and data types
+summary: Make the computer talk, and learn the difference between text and numbers.
+minutes: 15
+keywords: [print, string, integer, data type, operator, order of operations, SyntaxError]
+deck: https://slides.com/gig409/year-7-lesson-2-variables-in-python
+codebashTopic: Input, Output and Variables
+codebashTasks: ["Welcome and a sum", "Egg boxes"]
+yokaSays: "Hi, I'm Yoka! Let's make the computer talk."
+---
+
+## The big idea
+
+`print()` is the computer's **speech bubble**. Whatever you put inside the brackets appears on the screen.
+
+Python has different kinds of data. Today we meet two:
+
+- A **string** is a piece of text. It always wears speech marks: `"Hello"`.
+- An **integer** is a whole number, like `7`, `42` or `-3`. No speech marks.
+
+<MemoryBoxes boxes={[
+  { name: "a string", value: "\"Hello\"" },
+  { name: "an integer", value: "12" },
+  { name: "a string!", value: "\"12\"" }
+]} caption='Speech marks make it text. 12 is a number, but "12" is text.' />
+
+You can do maths with integers: `+` add, `-` subtract, `*` multiply, `/` divide.
+Python does `*` and `/` before `+` and `-`, just like in maths.
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="two-lines" predict="What two lines will this print? Careful with the sum!" />
+
+<LessonVideo clip="predictRun" />
+
+## Match it exactly
+
+The checker compares your output with the answer letter by letter. The dots show spaces.
+Can you find what's different in each pair?
+
+<SpotTheDifference pairs={[
+  { kind: "Capitals", a: "Hello, Year 8!", b: "hello, Year 8!", answer: "The H should be a capital." },
+  { kind: "Spaces", a: "Hello, Year 8!", b: "Hello,Year 8!", answer: "There should be a space after the comma." },
+  { kind: "Punctuation", a: "Hello, Year 8!", b: "Hello, Year 8", answer: "The ! is missing at the end." }
+]} />
+
+## Fix the bug
+
+This program crashes. Press Run and read the red message. What is missing?
+
+<PyChecker task="fix-speech-marks" />
+
+<LessonVideo clip="fixBug" />
+
+## Extra challenge
+
+<PyChecker task="year-and-sum" brief="Print <strong>Year 8</strong> on the first line. On the second line, let Python work out <strong>7 * 8</strong> for you." />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "What does `print()` do?", a: "It shows whatever is inside the brackets on the screen." },
+  { q: "Which is an integer: `7` or `\"7\"`?", a: "`7`. The one with speech marks is a string (text)." },
+  { q: "What will `print(5 * 3 + 4)` show?", a: "19. Python multiplies first (15), then adds 4." }
+]} />
+
+<SelfRating question='Could you explain the difference between 7 and "7"?' />

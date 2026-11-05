@@ -1,0 +1,84 @@
+---
+year: 8
+unit: While loops
+unitSlug: while-loops
+lesson: 12
+title: While loops
+summary: A loop for when nobody knows how many times. It keeps asking "are we there yet?"
+minutes: 15
+keywords: [while loop, condition-controlled, count-controlled, condition, iteration]
+deck: https://slides.com/gig409/year-8-condition-controlled-while-loops
+codebashTopic: While loops
+codebashTasks: ["Doubling up", "Countdown from any number"]
+---
+
+## The big idea
+
+A `for` loop asks **"how many?"** A `while` loop asks **"are we there yet?"**, and it asks again every single time round.
+
+| | for | while |
+|---|---|---|
+| Proper name | count-controlled | condition-controlled |
+| You know in advance | how many times | when to stop |
+| It stops when | the count runs out | the condition becomes False |
+| Good for | times tables, every letter in a word | passwords, menus, games |
+
+Every while loop needs **three things**, or it breaks:
+
+1. **Start value**: set the variable before the loop. `count = 5`
+2. **Condition**: a True or False question about it. `while count > 0:`
+3. **Update**: change the variable inside the loop, so the answer can become False. `count = count - 1`
+
+<LessonVideo clip="bigIdea" />
+
+## Predict, then run
+
+<PyChecker task="countdown" predict="How many numbers will it print? Does it print 0?" />
+
+<TraceTable
+  code={`count = 5
+while count > 0:
+    print(count)
+    count = count - 1
+print("Lift off!")`}
+  columns={["Line", "count", "What happened"]}
+  rows={[
+    { line: 1, cells: ["1", "5", "start value set"] },
+    { line: 2, cells: ["2", "5", "5 > 0 is True: go in"] },
+    { line: 3, cells: ["3", "5", "prints 5"] },
+    { line: 4, cells: ["4", "4", "one taken off"] },
+    { line: 2, cells: ["2", "4", "4 > 0 is True: go round again"] },
+    { line: 3, cells: ["3", "4", "prints 4"] },
+    { line: 4, cells: ["4", "3", "one taken off"] },
+    { line: 2, cells: ["2", "…", "…and so on, until…"] },
+    { line: 4, cells: ["4", "0", "one taken off"] },
+    { line: 2, cells: ["2", "0", "0 > 0 is False: leave the loop"] },
+    { line: 5, cells: ["5", "0", "prints Lift off!"] }
+  ]}
+/>
+
+<LessonVideo clip="predictRun" />
+
+## Make it
+
+<PyChecker task="countdown-n" brief="Read a number. Use a <strong>while</strong> loop to count down from it to 1, then print <strong>Go!</strong>" />
+
+## Fill the gap
+
+<PyChecker task="seven-times" brief="Replace ____ with a condition so the loop prints the 7 times table up to 7 × 12 (84)." />
+
+<LessonVideo clip="fixBug" />
+
+## Extra challenge
+
+<PyChecker task="past-100" brief="Add 1 + 2 + 3 + … and stop as soon as the total goes past 100. Print the last number you added, then the total, like the checker shows." />
+
+## Quiz me
+
+<QuizMe questions={[
+  { q: "Name the three things every while loop needs.", a: "A start value, a condition, and an update." },
+  { q: "Why use a while loop for a password, not a for loop?", a: "Nobody knows how many tries the user will need, so you can't put a number in range()." },
+  { q: "Counting down from 5, how many times is the condition checked?", a: "6 times: 5, 4, 3, 2 and 1 are True, then 0 is False." }
+]} />
+
+<SelfRating question="Could you write a while loop with a start value, condition and update?" />

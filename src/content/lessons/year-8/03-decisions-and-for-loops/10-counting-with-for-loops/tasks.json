@@ -1,0 +1,70 @@
+{
+  "tasks": [
+    {
+      "id": "rounds",
+      "title": "Rounds",
+      "starter": "for i in range(1, 4):\n    print(\"Round\", i)",
+      "tests": [
+        {
+          "input": "",
+          "output": "Round 1\nRound 2\nRound 3"
+        }
+      ],
+      "hints": {
+        "spaces": "The comma already adds a space. \"Round \" with a space inside gives two."
+      }
+    },
+    {
+      "id": "count-to-n",
+      "title": "Count to n",
+      "starter": "n = int(input())\n",
+      "tests": [
+        {
+          "input": "3",
+          "output": "1\n2\n3"
+        },
+        {
+          "input": "5",
+          "output": "1\n2\n3\n4\n5"
+        }
+      ],
+      "hints": {
+        "lines": "range stops before the stop number. To include n, stop at n + 1.",
+        "other": "Start the range at 1, not 0."
+      }
+    },
+    {
+      "id": "countdown-fives",
+      "title": "Countdown in fives",
+      "starter": "for x in range(20, 0, 5):\n    print(x)\nprint(\"Liftoff!\")",
+      "tests": [
+        {
+          "input": "",
+          "output": "20\n15\n10\n5\n0\nLiftoff!"
+        }
+      ],
+      "hints": {
+        "lines": "Counting down needs a negative hop. And range stops before the stop number, so what stop makes sure 0 is printed?"
+      }
+    },
+    {
+      "id": "times-table",
+      "title": "Times table",
+      "starter": "",
+      "tests": [
+        {
+          "input": "3",
+          "output": "3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9\n3 x 4 = 12\n3 x 5 = 15\nDone!"
+        },
+        {
+          "input": "7",
+          "output": "7 x 1 = 7\n7 x 2 = 14\n7 x 3 = 21\n7 x 4 = 28\n7 x 5 = 35\nDone!"
+        }
+      ],
+      "hints": {
+        "lines": "Done! should print once, after the loop. Is it indented by mistake?",
+        "other": "Use commas: print(n, \"x\", i, \"=\", n * i)."
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "tasks": [
+    {
+      "id": "remainders",
+      "title": "Left over",
+      "starter": "print(7 % 2)\nprint(10 % 3)\nprint(12 % 4)",
+      "tests": [
+        {
+          "input": "",
+          "output": "1\n1\n0"
+        }
+      ]
+    },
+    {
+      "id": "odd-or-even",
+      "title": "Odd or even",
+      "starter": "n = int(input())\n",
+      "tests": [
+        {
+          "input": "7",
+          "output": "7 is odd"
+        },
+        {
+          "input": "10",
+          "output": "10 is even"
+        },
+        {
+          "input": "0",
+          "output": "0 is even"
+        }
+      ],
+      "hints": {
+        "other": "If n % 2 == 0 the number is even. Otherwise (else) it is odd."
+      }
+    },
+    {
+      "id": "divisible-by-5",
+      "title": "Divides by 5?",
+      "starter": "n = int(input())\nif n % 5 = 0:\n    print(\"Yes\")\nelse:\n    print(\"No\")",
+      "tests": [
+        {
+          "input": "25",
+          "output": "Yes"
+        },
+        {
+          "input": "12",
+          "output": "No"
+        },
+        {
+          "input": "0",
+          "output": "Yes"
+        }
+      ],
+      "hints": {
+        "error": "One = sets a box. To ask \"is it equal?\" you need two: ==."
+      }
+    }
+  ]
+}
