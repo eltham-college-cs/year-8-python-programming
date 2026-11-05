@@ -34,6 +34,20 @@ Like CodeBash, these tasks use `input()` with nothing in the brackets.
 
 <LessonVideo clip="bigIdea" />
 
+<ExerciseBook>
+
+**Validation** checks whether input follows a rule. A **sentinel value** is a special value that tells a loop to stop, such as `"q"` for quit.
+
+Copy the code. Write what happens if the user enters `"play"` and then `"q"`. The program asks again after `"play"` and stops after `"q"`.
+
+```python
+choice = input()
+while choice != "q":
+    choice = input()
+```
+
+</ExerciseBook>
+
 ## Predict, then run
 
 <PyChecker task="password" predict="Press Run and type silver, then bronze, then gold. What will you see?" />
@@ -71,6 +85,12 @@ while attempt != PASSWORD and tries < 3:
 ## Extra challenge
 
 <PyChecker task="menu" brief="Build a menu that loops until the user types <strong>q</strong>. <strong>p</strong> prints <strong>Starting game...</strong>, <strong>s</strong> prints <strong>High score: 42</strong>. After the loop, print <strong>Bye!</strong>" />
+
+<ExerciseBook title="Write your own example">
+
+Choose your own word to end a menu loop. Write the first input, the loop condition and the input inside the loop. Write two sample answers and explain which one ends the loop.
+
+</ExerciseBook>
 
 ## Quiz me
 

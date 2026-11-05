@@ -3,6 +3,7 @@ import { render } from 'astro:content';
 import LessonLayout from '../../../layouts/LessonLayout.astro';
 import { getLessons, lessonSlug, tasksFor, type Lesson } from '../../../lib/lessons';
 import Note from '../../../components/Note.astro';
+import ExerciseBook from '../../../components/ExerciseBook.astro';
 import InputFlow from '../../../components/InputFlow.astro';
 import MemoryBoxes from '../../../components/MemoryBoxes.astro';
 import PyChecker from '../../../components/PyChecker.astro';
@@ -16,7 +17,7 @@ import LessonVideo from '../../../components/LessonVideo.astro';
 
 // Every lesson can use these without importing them.
 const components = {
-  Note, InputFlow, MemoryBoxes, PyChecker, OutputDiff, TraceTable,
+  Note, ExerciseBook, InputFlow, MemoryBoxes, PyChecker, OutputDiff, TraceTable,
   SpotTheDifference, Parsons, QuizMe, SelfRating, LessonVideo,
 };
 

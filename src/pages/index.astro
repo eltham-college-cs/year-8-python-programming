@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ExerciseBook from '../components/ExerciseBook.astro';
 import Yoka from '../components/Yoka.astro';
 import { getLessons, lessonUrl } from '../lib/lessons';
 import { url } from '../lib/url';
@@ -27,6 +28,19 @@ const first = lessons[0];
     </div>
   </section>
 
+  <section class="book-guide" id="exercise-book" aria-labelledby="book-guide-title">
+    <h2 id="book-guide-title">Using your exercise book</h2>
+    <ExerciseBook>
+      <p>When you see this notebook icon, pause and write in your exercise book. Put the date and lesson title at the top of a new entry.</p>
+      <ol>
+        <li><strong>Write the keyword and its meaning.</strong> For example, a <strong>string</strong> is a piece of text.</li>
+        <li><strong>Copy the worked example.</strong> Write <code>print("Hello")</code>, then record the output <code>Hello</code> on a separate line.</li>
+        <li><strong>Write your own example.</strong> Change the message, predict the output, then run your code to check it.</li>
+      </ol>
+      <p>Copy capital letters, speech marks and brackets carefully. For code that uses indentation, keep the spaces at the start of each line.</p>
+    </ExerciseBook>
+  </section>
+
   <section aria-labelledby="how">
     <h2 id="how">How to use the course</h2>
     <ol>
@@ -43,6 +57,15 @@ const first = lessons[0];
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 20px;
+  }
+  .book-guide {
+    margin: 32px 0;
+  }
+  .book-guide h2 {
+    margin-bottom: 12px;
+  }
+  .book-guide ol {
+    padding-left: 1.4em;
   }
   li + li {
     margin-top: 8px;

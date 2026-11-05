@@ -22,6 +22,7 @@ No imports needed.
 
 | Component | Example |
 |---|---|
+| ExerciseBook | `<ExerciseBook>...</ExerciseBook>` after the big idea for key words and a worked example. Use `title="Write your own example"` before the quiz. |
 | Note | `<Note title="Remember">...</Note>` |
 | PyChecker | `<PyChecker task="hello-name" predict="What will it print?" />` or `brief="Your task..."` |
 | TraceTable | `<TraceTable code={...} columns={[...]} rows={[{ line: 1, cells: [...] }]} />` |

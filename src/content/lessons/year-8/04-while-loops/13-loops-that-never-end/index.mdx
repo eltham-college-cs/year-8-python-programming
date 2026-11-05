@@ -28,6 +28,20 @@ Then check: does the body change the variable in the condition? In the right dir
 
 <LessonVideo clip="bigIdea" />
 
+<ExerciseBook>
+
+An **infinite loop** keeps repeating because its condition never becomes false.
+
+Copy this bug and explain why it keeps printing `2`. Then add `count = count - 1` inside the loop and record the corrected output.
+
+```python
+count = 2
+while count > 0:
+    print(count)
+```
+
+</ExerciseBook>
+
 ## Watch it get stuck
 
 The update line is missing. Watch the `count` column: it never moves.
@@ -65,6 +79,12 @@ The condition is only checked at the **top** of the loop. Will this print `count
 <PyChecker task="sneaky" />
 
 <LessonVideo clip="fixBug" />
+
+<ExerciseBook title="Write your own example">
+
+On paper, write a short loop that would never end because its counter changes in the wrong direction. Under it, write the fix. Run your fixed version and check when it stops.
+
+</ExerciseBook>
 
 ## Quiz me
 
